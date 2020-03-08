@@ -2,11 +2,16 @@ package main;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PGraphics;
+import processing.core.PImage;
 import controlP5.*;
 
 public class Main extends PApplet {
 
 	ControlP5 cp5;
+	CallbackListener cb;
+	PImage screen3;
+	
 	
 	public static void main(String[] args) {
 		
@@ -14,31 +19,47 @@ public class Main extends PApplet {
 		
 	}
 
+
 	public void setup() {
 		
-		PFont font =  createFont ( "Raleway-Regular.ttf" , 20 );
-
-		cp5 = new ControlP5(this);
+		screen3= loadImage("insumos/screen3.jpg");
+		PFont font =  createFont ( "Raleway-Regular.ttf" , 15 );
 		
-		 cp5.addTextfield("jkj")
-	     .setPosition(20,100)
-	     .setSize(200,40)
+		cp5 = new ControlP5(this);
+		 noStroke();
+		 noFill();
+		 
+		 cp5.addTextfield("")
+	     .setPosition(93,258)
+	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
-	     .setColor(color(255))
+	     .setColor(255)
 	     //.setLabelVisible(false)
-	    // .setColorBackground(255)
-	     .setColorActive(255) 
+	     .setColorBackground(color(255,255,255,10))
+	     .setColorActive(color(255,255,255,10)) 
 	     .removeBehavior() 
-	    // .setStringValue("Usuario")
+	     .setText("Usuario")
+	     .onClick(cb) 
+	     
+	     //.setStringValue("Usuario")
 	     //.setCaptionLabel("Usuario")
 	     //.setPasswordMode(true)
-	  //   .setText("Usuario")
+	     //
 	     ;
-		 
+		
 		textFont(font); 
+		
+		 cb = new CallbackListener() {
+			    public void controlEvent(CallbackEvent theEvent) {
+			      
+			    	
+			      
+			    }
+			  };
+
 	}
-	
+
 	public void settings() {
 		size(360,640);
 		
@@ -47,7 +68,8 @@ public class Main extends PApplet {
 	
 	public void draw() {
 		background(45);
-		
+		image(screen3,0,0);
+		text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 		
 	}
 }
