@@ -70,6 +70,7 @@ public class Main extends PApplet {
 		switch (pantallas) {
 		case 0:
 			hidetext();
+			hideboton();
 			image(screen1,0,0);
 			contadorf = frameCount;
 			if(contadorf==30) {
@@ -78,32 +79,64 @@ public class Main extends PApplet {
 			System.out.println(frameCount);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 1:
 			image(screen2,0,0);
-			
+			cp5.get(Button.class,"login").show();
+			cp5.get(Button.class,"register").show();
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			
 			break;
+			
+
+			
 		case 2:
+
 			image(screen3,0,0);
+
 			cp5.get(Textfield.class,"usuario").setVisible(true);
 			cp5.get(Textfield.class,"password").setVisible(true);
+			cp5.get(Button.class,"register2").show();
+			cp5.get(Button.class,"login").hide();
+			cp5.get(Button.class,"register").hide();
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 3:
+			image(screen4,0,0);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 4:
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 5:
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 6:
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 7:
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
+			
+			
+			
 		case 8:
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
@@ -129,6 +162,12 @@ public class Main extends PApplet {
 		cp5.get(Textfield.class,"email").setVisible(false);
 	}
 	
+	private void hideboton() {
+		cp5.get(Button.class,"login").hide();
+		cp5.get(Button.class,"login2").hide();
+		cp5.get(Button.class,"register").hide();
+		cp5.get(Button.class,"register2").hide();
+			}
 	
 
 
@@ -156,7 +195,7 @@ public class Main extends PApplet {
 	public void textoslog() {
 		
 		 cp5.addTextfield("usuario")
-	     .setPosition(93,250)
+	     .setPosition(90,250)
 	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
@@ -169,7 +208,7 @@ public class Main extends PApplet {
 	     ;
 		
 		 cp5.addTextfield("password")
-	     .setPosition(93,250)
+	     .setPosition(90,297)
 	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
@@ -241,7 +280,6 @@ public class Main extends PApplet {
 	
 	public void botones() {
 		  cp5.addButton("login")
-		     .setValue(0)
 		     .setPosition(145,198)
 		     .setSize(72,21)
 		     .setColorActive(color(255,255,255,1)) 
@@ -250,5 +288,63 @@ public class Main extends PApplet {
 		     .setCaptionLabel("") 
 		     ;
 		
+		  cp5.addButton("register")
+		     .setPosition(145,239)
+		     .setSize(72,21)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  
+		  cp5.addButton("login2")
+		     .setPosition(145,198)
+		     .setSize(72,21)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		
+		  cp5.addButton("register2")
+		     .setPosition(187,198)
+		     .setSize(72,21)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  cp5.addButton("sign")
+		     .setPosition(142,344)
+		     .setSize(78,26)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  
 	}
+	public void login() {
+		  println("login");
+		  pantallas=2;
+			
+		}
+	public void register() {
+		  println("register");
+		  pantallas=3;
+
+		}
+	
+	public void login2() {
+		  println("login");
+		  pantallas=2;
+		  
+		}
+	public void register2() {
+		  println("register");
+		  pantallas=3;
+		}
 }
