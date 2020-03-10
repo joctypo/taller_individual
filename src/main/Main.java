@@ -3,12 +3,19 @@ package main;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;
+
+import java.util.ArrayList;
+
 import controlP5.*;
 
 public class Main extends PApplet {
 
 	ControlP5 cp5;
 	CallbackListener cb;
+	
+	ArrayList<Usuario> people;
+	ArrayList<Carros> cars;
+	
 	
 	PImage screen1;
 	PImage screen2;
@@ -251,12 +258,18 @@ public class Main extends PApplet {
 			image(screen8,0,0);
 			fill(0);
 			cp5.get(Button.class,"pagar").show();
+			cp5.get(Textfield.class,"card").setVisible(true);
+			cp5.get(Textfield.class,"cvc").setVisible(true);
+			cp5.get(Textfield.class,"fecha").setVisible(true);
+			cp5.get(Textfield.class,"id").setVisible(true);
+			cp5.get(Textfield.class,"password3").setVisible(true);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 		case 13:
-			
+			// aqui muestra un resumen de la compra 
 			hideboton();
+			hidetext();
 			if (pantallavieja==6) {
 				image(screen9,0,0);
 				
@@ -358,6 +371,11 @@ public class Main extends PApplet {
 		cp5.get(Textfield.class,"password2").setVisible(false);
 		cp5.get(Textfield.class,"nombre").setVisible(false);
 		cp5.get(Textfield.class,"email").setVisible(false);
+		cp5.get(Textfield.class,"card").setVisible(false);
+		cp5.get(Textfield.class,"password3").setVisible(false);
+		cp5.get(Textfield.class,"cvc").setVisible(false);
+		cp5.get(Textfield.class,"id").setVisible(false);
+		cp5.get(Textfield.class,"fecha").setVisible(false);
 	}
 	
 	private void hideboton() {
@@ -476,6 +494,79 @@ public class Main extends PApplet {
 	     .setFocus(true)
 	     .setFont(font)
 	     .setColor(255)
+	     .setPasswordMode(true)
+	     .setColorBackground(color(255,255,255,1))
+	     .setColorActive(color(255,255,255,1)) 
+	     .removeBehavior() 
+	     .setLabelVisible(false)
+	     .setCaptionLabel("")
+	     ;	
+		 
+		 
+		 cp5.addTextfield("card")
+	     .setPosition(42,304)
+	     .setSize(270,26)
+	     .setFocus(true)
+	     .setFont(font)
+	     .setColor(155)
+	     
+	     .setColorBackground(color(255,255,255,1))
+	     .setColorActive(color(255,255,255,1)) 
+	     .removeBehavior() 
+	     .setLabelVisible(false)
+	     .setCaptionLabel("")
+	     ;	
+		 
+		 cp5.addTextfield("cvc")
+	     .setPosition(42,357)
+	     .setSize(54,26)
+	     .setFocus(true)
+	     .setFont(font)
+	     .setColor(155)
+	     
+	     .setColorBackground(color(255,255,255,1))
+	     .setColorActive(color(255,255,255,1)) 
+	     .removeBehavior() 
+	     .setLabelVisible(false)
+	     .setCaptionLabel("")
+	     ;	
+		 
+		 cp5.addTextfield("fecha")
+	     .setPosition(125,355)
+	     .setSize(91,26)
+	     .setFocus(true)
+	     .setFont(font)
+	     .setColor(155)
+	    
+	     .setColorBackground(color(255,255,255,1))
+	     .setColorActive(color(255,255,255,1)) 
+	     .removeBehavior() 
+	     .setLabelVisible(false)
+	     .setCaptionLabel("")
+	     ;	
+		 
+		 cp5.addTextfield("id")
+		 .setPosition(42,409)
+	     .setSize(270,26)
+	     .setFocus(true)
+	     .setFont(font)
+	     .setColor(155)
+	    
+	     .setColorBackground(color(255,255,255,1))
+	     .setColorActive(color(255,255,255,1)) 
+	     .removeBehavior() 
+	     .setLabelVisible(false)
+	     .setCaptionLabel("")
+	     ;	
+		 
+
+		 
+		 cp5.addTextfield("password3")
+	     .setPosition(42,521)
+	     .setSize(270,26)
+	     .setFocus(true)
+	     .setFont(font)
+	     .setColor(155)
 	     .setPasswordMode(true)
 	     .setColorBackground(color(255,255,255,1))
 	     .setColorActive(color(255,255,255,1)) 
