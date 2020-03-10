@@ -47,9 +47,9 @@ public class Main extends PApplet {
 	String tarjeta;
 	String usuarioeva;
 	String passeva;
-	
+	int cash;
 
-	
+	int posicion=0;
 	int registrador=0;
 	int pantallas=0;
 	int contadorf;
@@ -87,7 +87,7 @@ public class Main extends PApplet {
 		card = new String [20];
 		people= new ArrayList <Usuario>();
 		cars=new ArrayList <Carros>();
-		
+		cars.add(new TeslaA(0,""));
 		usuario[0] = "usuario";
 		usuario[1] = "name";
 		usuario[2] = "email";
@@ -289,7 +289,11 @@ public class Main extends PApplet {
 			cp5.get(Textfield.class,"fecha").setVisible(true);
 			cp5.get(Textfield.class,"id").setVisible(true);
 			cp5.get(Textfield.class,"password3").setVisible(true);
-			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			cash= cars.get(posicion).getPrecio();
+			textFont(font);
+			text(cash,45,485);
+			
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 		case 13:
@@ -348,9 +352,26 @@ public class Main extends PApplet {
 		
 		// verifica el botón de comprar
 		if ((pantallas==6 || pantallas==7 || pantallas==8) && mouseX>30 && mouseX<92 && mouseY>486 && mouseY<600) {
-			pantallavieja=pantallas;
-			pantallas=12;
 			
+			
+			
+			if(pantallas==6) {
+				cars.add(new TeslaA(0,""));
+			}
+			if(pantallas==7) {
+				cars.add(new TeslaB(0,""));
+			}
+			if(pantallas==8) {
+				cars.add(new TeslaC(0,""));
+
+			}
+			
+			posicion++;	
+			
+			pantallavieja=pantallas;
+			
+			
+			pantallas=12;
 		}
 		
 		//verifica el botón de regresar de A
@@ -376,7 +397,7 @@ public class Main extends PApplet {
 		
 		//verifica el botón de regresar en compras de A
 		if (pantallas==12  && mouseX>22 && mouseX<73 && mouseY>59 && mouseY<93) {
-			
+
 			pantallas=pantallavieja;
 			
 		}
@@ -385,8 +406,10 @@ public class Main extends PApplet {
 		if (pantallas==13  && mouseX>143 && mouseX<216 && mouseY>556 && mouseY<581) {
 			
 			pantallas=4;
-			
-		}
+			}
+		
+		
+		
 		
 	/*	if (pantallas==3  && mouseX>141 && mouseX<216 && mouseY>434 && mouseY<458) {
 			
@@ -819,8 +842,15 @@ pantallas=2;
 		pantallas=4;
 	}
 	public void pagar() {
-		System.out.println("entro papi");
-		pantallas=13;
+		
+		if(cp5.get(Textfield.class, "password3").getText().equals(passeva)) {
+			
+			pantallas=13;
+			limpiar();
+			System.out.println("entro");
+		}
+		
+		
 		
 	}
 	
