@@ -15,7 +15,8 @@ public class Main extends PApplet {
 	
 	ArrayList<Usuario> people;
 	ArrayList<Carros> cars;
-	
+	String [] usuario;
+	String [] card;
 	
 	PImage screen1;
 	PImage screen2;
@@ -33,6 +34,19 @@ public class Main extends PApplet {
 	PImage screen14;
 	PImage screen15;
 	PImage screen16;
+	String vacio = "";
+	String register;
+	String username;
+	String correo;
+	String contrasena;
+	String naming;
+	String pascar;
+	String cvcc;
+	String fecha; 
+	String id; 
+
+	
+	int registrador=0;
 	int pantallas=0;
 	int contadorf;
 	int tiempo;
@@ -65,8 +79,16 @@ public class Main extends PApplet {
 		textoslog();
 		textosreg();
 		botones();
+		usuario = new String [4];
+		card = new String [20];
+		people= new ArrayList <Usuario>();
+		cars=new ArrayList <Carros>();
 		
-
+		usuario[0] = "usuario";
+		usuario[1] = "name";
+		usuario[2] = "email";
+		usuario[3] = "password";
+	
 		 	
 
 	}
@@ -362,6 +384,13 @@ public class Main extends PApplet {
 			
 		}
 		
+	/*	if (pantallas==3  && mouseX>141 && mouseX<216 && mouseY>434 && mouseY<458) {
+			
+			registraduria();
+			
+			
+		}*/
+		
 		
 	}
 	private void hidetext() {
@@ -509,7 +538,6 @@ public class Main extends PApplet {
 	     .setFocus(true)
 	     .setFont(font)
 	     .setColor(155)
-	     
 	     .setColorBackground(color(255,255,255,1))
 	     .setColorActive(color(255,255,255,1)) 
 	     .removeBehavior() 
@@ -689,8 +717,31 @@ public class Main extends PApplet {
 		 	;
 	
 	}
-		 
 	
+	public void registraduria() {
+		System.out.println("entro");
+		naming = cp5.get(Textfield.class, "nombre").getText();
+		usuario[0] = naming;
+		username = cp5.get(Textfield.class, "usuario2").getText();
+		usuario[1] = username ;
+		correo = cp5.get(Textfield.class, "email").getText();
+		usuario[2] = correo;
+		contrasena = cp5.get(Textfield.class, "password2").getText();
+		usuario[3] = contrasena;
+		
+		people.add(new Usuario(naming,username,correo,contrasena));
+		
+		
+		System.out.println(naming+username+correo+contrasena);
+		pantallas = 2;
+
+	}
+		 
+	public void loguear() {
+		
+		if(cp5.get(Textfield.class, "username2").getText().equals(Use) && cp5.get(Textfield.class, "password2").getText().equals(pass)) {}
+		
+	}
 	
 	
 	
@@ -722,7 +773,7 @@ public class Main extends PApplet {
 	
 	}
 	public void submit() {
-		pantallas=2;
+			registraduria();
 	}
 	
 	public void perfil() {
