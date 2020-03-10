@@ -29,6 +29,7 @@ public class Main extends PApplet {
 	int pantallas=0;
 	int contadorf;
 	int tiempo;
+	int pantallavieja=0;
 	PFont font;
 	
 	boolean verificar=false;
@@ -178,7 +179,7 @@ public class Main extends PApplet {
 			
 			
 		case 6:
-
+			//previsualizar un carro
 			cp5.get(Button.class,"perfil").hide();
 			cp5.get(Button.class,"teslaA").hide();
 			cp5.get(Button.class,"teslaB").hide();
@@ -192,7 +193,7 @@ public class Main extends PApplet {
 			
 			
 		case 7:
-			
+			//previsualizar un carro
 			cp5.get(Button.class,"perfil").hide();
 			cp5.get(Button.class,"teslaA").hide();
 			cp5.get(Button.class,"teslaB").hide();
@@ -207,7 +208,7 @@ public class Main extends PApplet {
 			
 			
 		case 8:
-			
+			// previsualizar un carro
 			cp5.get(Button.class,"perfil").hide();
 			cp5.get(Button.class,"teslaA").hide();
 			cp5.get(Button.class,"teslaB").hide();
@@ -219,7 +220,42 @@ public class Main extends PApplet {
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
-
+		case 9:
+			// comparar carro A
+			hideboton();
+			image(screen7,0,0);
+			
+			//fill(0);
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			break;
+			
+		case 10:
+			// comparar carro B
+			hideboton();
+			image(screen11,0,0);
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			break;
+			
+		case 11:
+			// comparar carro C
+			hideboton();
+			image(screen13,0,0);
+						
+			//fill(0);
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			break;
+			
+		case 12:
+			// comprar 
+			hideboton();
+			image(screen8,0,0);
+			fill(0);
+			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			break;
+			
+		case 13: 
+			
+			 break;
 	
 		}
 		
@@ -231,32 +267,63 @@ public class Main extends PApplet {
 	}
 		
 	public void mouseClicked() {
+		
+		// Verifica para salir del menu lateral
 		if (pantallas==5 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
 			
 			pantallas=4;
 			
 		}
 		
-		if (pantallas==6 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+		// verifica el botón de comparar del carro A
+		if (pantallas==6 && mouseX>30 && mouseX<92 && mouseY>355 && mouseY<467) {
 			
-			pantallas=4;
-			
-		}
-		if (pantallas==7 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
-			
-			pantallas=4;
+			pantallas=9;
 			
 		}
-		if (pantallas==8 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+		
+		// verifica el botón de comparar del carro B
+		if (pantallas==7 && mouseX>30 && mouseX<92 && mouseY>355 && mouseY<467) {
 			
-			pantallas=4;
-			
-		}
-		if (pantallas==5 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
-			
-			pantallas=4;
+			pantallas=10;
 			
 		}
+		
+		// verifica el botón de comparar del carro C
+		if (pantallas==8 && mouseX>30 && mouseX<92 && mouseY>355 && mouseY<467) {
+			
+			pantallas=11;
+			
+		}
+		
+		// verifica el botón de comprar
+		if ((pantallas==6 || pantallas==7 || pantallas==8) && mouseX>30 && mouseX<92 && mouseY>486 && mouseY<600) {
+			pantallavieja=pantallas;
+			pantallas=12;
+			
+		}
+		
+		//verifica el botón de regresar de A
+		if (pantallas==9 && mouseX>22 && mouseX<73 && mouseY>59 && mouseY<93) {
+			
+			pantallas=6;
+			
+		}
+		
+		//verifica el botón de regresar de B
+		if (pantallas==10 && mouseX>22 && mouseX<73 && mouseY>59 && mouseY<93) {
+			
+			pantallas=7;
+			
+		}
+		
+		//verifica el botón de regresar de C
+		if (pantallas==11 && mouseX>22 && mouseX<73 && mouseY>59 && mouseY<93) {
+			
+			pantallas=8;
+			
+		}
+		
 		
 	}
 	private void hidetext() {
@@ -495,7 +562,8 @@ public class Main extends PApplet {
 		     .setCaptionLabel("") 
 		     ;
 		 
-		 
+
+	 
 	}
 	
 	
