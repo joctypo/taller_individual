@@ -247,14 +247,25 @@ public class Main extends PApplet {
 			
 		case 12:
 			// comprar 
-			hideboton();
+			
 			image(screen8,0,0);
 			fill(0);
+			cp5.get(Button.class,"pagar").show();
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
-		case 13: 
+		case 13:
 			
+			hideboton();
+			if (pantallavieja==6) {
+				image(screen9,0,0);
+				
+			}else if (pantallavieja==7) {
+				image(screen14,0,0);
+				
+			}else if (pantallavieja==8) {
+				image(screen15,0,0);
+			}
 			 break;
 	
 		}
@@ -324,6 +335,20 @@ public class Main extends PApplet {
 			
 		}
 		
+		//verifica el botón de regresar en compras de A
+		if (pantallas==12  && mouseX>22 && mouseX<73 && mouseY>59 && mouseY<93) {
+			
+			pantallas=pantallavieja;
+			
+		}
+		
+		//regresar al menu principal después de la compra
+		if (pantallas==13  && mouseX>143 && mouseX<216 && mouseY>556 && mouseY<581) {
+			
+			pantallas=4;
+			
+		}
+		
 		
 	}
 	private void hidetext() {
@@ -347,6 +372,7 @@ public class Main extends PApplet {
 		cp5.get(Button.class,"teslaB").hide();
 		cp5.get(Button.class,"teslaC").hide();
 		cp5.get(Button.class,"regresar").hide();
+		cp5.get(Button.class,"pagar").hide();
 			}
 	
 
@@ -562,17 +588,17 @@ public class Main extends PApplet {
 		     .setCaptionLabel("") 
 		     ;
 		 
-
-	 
+		 cp5.addButton("pagar")
+		 	.setPosition(143,581)
+		 	.setSize(73,24)
+		 	.setColorActive(color(255,255,255,1)) 
+		 	.setColorBackground(color(255,255,255,1))
+		 	.setColorForeground(color(0,0,0,30))
+		 	.setCaptionLabel("") 
+		 	;
+	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+		 
 	
 	
 	
@@ -622,5 +648,10 @@ public class Main extends PApplet {
 	}
 	public void regresar() {
 		pantallas=4;
+	}
+	public void pagar() {
+		System.out.println("entro papi");
+		pantallas=13;
+		
 	}
 }
