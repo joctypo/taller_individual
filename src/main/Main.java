@@ -25,6 +25,7 @@ public class Main extends PApplet {
 	PImage screen13;
 	PImage screen14;
 	PImage screen15;
+	PImage screen16;
 	int pantallas=0;
 	int contadorf;
 	int tiempo;
@@ -69,6 +70,7 @@ public class Main extends PApplet {
 		
 		switch (pantallas) {
 		case 0:
+			//esta pantalla es la primera que es como una cortinilla
 			hidetext();
 			hideboton();
 			image(screen1,0,0);
@@ -77,67 +79,120 @@ public class Main extends PApplet {
 				pantallas ++;
 			}
 			System.out.println(frameCount);
-			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 1:
 			image(screen2,0,0);
+			//aqui elegimos las acciones que deseamos realizar 
 			cp5.get(Button.class,"login").show();
 			cp5.get(Button.class,"register").show();
-			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			
 			break;
 			
 
 			
 		case 2:
-
+			//en esta pantalla esta el login de la app
 			image(screen3,0,0);
-
+			cp5.get(Textfield.class,"usuario2").setVisible(false);
+			cp5.get(Textfield.class,"password2").setVisible(false);
+			cp5.get(Textfield.class,"email").setVisible(false);
+			cp5.get(Textfield.class,"nombre").setVisible(false);
+			cp5.get(Button.class,"submit").hide();
+			cp5.get(Button.class,"login").hide();
+			cp5.get(Button.class,"register").hide();
+			cp5.get(Button.class,"login2").hide();
+			
+			//estos son los datos requeridos para el login
 			cp5.get(Textfield.class,"usuario").setVisible(true);
 			cp5.get(Textfield.class,"password").setVisible(true);
 			cp5.get(Button.class,"register2").show();
-			cp5.get(Button.class,"login").hide();
-			cp5.get(Button.class,"register").hide();
-			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			cp5.get(Button.class,"sign").show();
+
+			
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 3:
+			// aqui se encuentra el registro, en esta primera parte ocultamos
+			// lo que no necesitamos
+			cp5.get(Textfield.class,"usuario").setVisible(false);
+			cp5.get(Textfield.class,"password").setVisible(false);
+			cp5.get(Button.class,"login").hide();
+			cp5.get(Button.class,"register").hide();
+			cp5.get(Button.class,"sign").hide();
+			cp5.get(Button.class,"register2").hide();
+			
+			//aqui estan todos los datos requeridos para el register
 			image(screen4,0,0);
-			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			cp5.get(Textfield.class,"usuario2").setVisible(true);
+			cp5.get(Textfield.class,"password2").setVisible(true);
+			cp5.get(Textfield.class,"email").setVisible(true);
+			cp5.get(Textfield.class,"nombre").setVisible(true);
+			cp5.get(Button.class,"submit").show();
+			cp5.get(Button.class,"login2").show();
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 4:
-			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			//Aquí se encuentra el menú y en esta ocultamos botones
+			hidetext();
+			cp5.get(Button.class,"sign").hide();
+			cp5.get(Button.class,"register2").hide();
+			
+			//Aqui estan todos los botones del menu para comprar
+			image(screen5,0,0);
+			cp5.get(Button.class,"perfil").show();
+			cp5.get(Button.class,"teslaA").show();
+			cp5.get(Button.class,"teslaB").show();
+			cp5.get(Button.class,"teslaC").show();
+			
+			
+			//fill(0);
+			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 5:
+			cp5.get(Button.class,"perfil").hide();
+			cp5.get(Button.class,"teslaA").hide();
+			cp5.get(Button.class,"teslaB").hide();
+			cp5.get(Button.class,"teslaC").hide();
+			image(screen5,0,0);
+			image(screen16,0,0);
+			
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
+			
 			break;
 			
 			
 			
 		case 6:
+			image(screen6,0,0);
+			
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 7:
+			image(screen7,0,0);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 8:
+			image(screen8,0,0);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
@@ -167,6 +222,12 @@ public class Main extends PApplet {
 		cp5.get(Button.class,"login2").hide();
 		cp5.get(Button.class,"register").hide();
 		cp5.get(Button.class,"register2").hide();
+		cp5.get(Button.class,"submit").hide();
+		cp5.get(Button.class,"sign").hide();
+		cp5.get(Button.class,"perfil").hide();
+		cp5.get(Button.class,"teslaA").hide();
+		cp5.get(Button.class,"teslaB").hide();
+		cp5.get(Button.class,"teslaC").hide();
 			}
 	
 
@@ -189,9 +250,9 @@ public class Main extends PApplet {
 		screen13= loadImage("insumos/screen13.png");
 		screen14= loadImage("insumos/screen14.png");
 		screen15= loadImage("insumos/screen15.png");
+		screen16=loadImage("insumos/screen16.png");
 	
 	}
-
 	public void textoslog() {
 		
 		 cp5.addTextfield("usuario")
@@ -213,6 +274,7 @@ public class Main extends PApplet {
 	     .setFocus(true)
 	     .setFont(font)
 	     .setColor(255)
+	     .setPasswordMode(true)
 	     .setColorBackground(color(255,255,255,1))
 	     .setColorActive(color(255,255,255,1)) 
 	     .removeBehavior() 
@@ -225,7 +287,7 @@ public class Main extends PApplet {
 	public void textosreg() {
 		
 		 cp5.addTextfield("usuario2")
-	     .setPosition(93,250)
+	     .setPosition(91,244)
 	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
@@ -238,7 +300,7 @@ public class Main extends PApplet {
 	     ;
 		
 		 cp5.addTextfield("nombre")
-	     .setPosition(93,250)
+	     .setPosition(91,290)
 	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
@@ -251,7 +313,7 @@ public class Main extends PApplet {
 	     ;
 		 
 		 cp5.addTextfield("email")
-	     .setPosition(93,250)
+	     .setPosition(91,339)
 	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
@@ -264,11 +326,12 @@ public class Main extends PApplet {
 	     ;
 		 
 		 cp5.addTextfield("password2")
-	     .setPosition(93,250)
+	     .setPosition(91,387)
 	     .setSize(185,26)
 	     .setFocus(true)
 	     .setFont(font)
 	     .setColor(255)
+	     .setPasswordMode(true)
 	     .setColorBackground(color(255,255,255,1))
 	     .setColorActive(color(255,255,255,1)) 
 	     .removeBehavior() 
@@ -299,7 +362,7 @@ public class Main extends PApplet {
 		  
 		  
 		  cp5.addButton("login2")
-		     .setPosition(145,198)
+		     .setPosition(94,197)
 		     .setSize(72,21)
 		     .setColorActive(color(255,255,255,1)) 
 		     .setColorBackground(color(255,255,255,1))
@@ -325,8 +388,67 @@ public class Main extends PApplet {
 		     .setCaptionLabel("") 
 		     ;
 		  
+		  cp5.addButton("submit")
+		     .setPosition(141,434)
+		     .setSize(78,26)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  
+		  cp5.addButton("perfil")
+		     .setPosition(26,71)
+		     .setSize(35,32)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  cp5.addButton("teslaA")
+		     .setPosition(58,129)
+		     .setSize(243,149)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  cp5.addButton("teslaB")
+		     .setPosition(58,291)
+		     .setSize(243,149)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		  
+		  cp5.addButton("teslaC")
+		     .setPosition(58,454)
+		     .setSize(243,149)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
 		  
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Estas son las funciones de los botones que se encuentran arriba
 	public void login() {
 		  println("login");
 		  pantallas=2;
@@ -347,4 +469,25 @@ public class Main extends PApplet {
 		  println("register");
 		  pantallas=3;
 		}
+	
+	public void sign() {
+		pantallas=4;
+	
+	}
+	public void submit() {
+		pantallas=2;
+	}
+	
+	public void perfil() {
+		pantallas=5;
+	}
+	public void teslaA() {
+		pantallas=6;
+	}
+	public void teslaB() {
+		pantallas=7;
+	}
+	public void teslaC() {
+		pantallas=8;
+	}
 }
