@@ -147,6 +147,7 @@ public class Main extends PApplet {
 			hidetext();
 			cp5.get(Button.class,"sign").hide();
 			cp5.get(Button.class,"register2").hide();
+			cp5.get(Button.class,"regresar").hide();
 			
 			//Aqui estan todos los botones del menu para comprar
 			image(screen5,0,0);
@@ -177,22 +178,44 @@ public class Main extends PApplet {
 			
 			
 		case 6:
+
+			cp5.get(Button.class,"perfil").hide();
+			cp5.get(Button.class,"teslaA").hide();
+			cp5.get(Button.class,"teslaB").hide();
+			cp5.get(Button.class,"teslaC").hide();
 			image(screen6,0,0);
-			
+			cp5.get(Button.class,"regresar").show();
+			fill(0);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 7:
-			image(screen7,0,0);
+			
+			cp5.get(Button.class,"perfil").hide();
+			cp5.get(Button.class,"teslaA").hide();
+			cp5.get(Button.class,"teslaB").hide();
+			cp5.get(Button.class,"teslaC").hide();
+			image(screen10,0,0);
+			
+			cp5.get(Button.class,"regresar").show();
+			fill(0);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
 			
 			
 		case 8:
-			image(screen8,0,0);
+			
+			cp5.get(Button.class,"perfil").hide();
+			cp5.get(Button.class,"teslaA").hide();
+			cp5.get(Button.class,"teslaB").hide();
+			cp5.get(Button.class,"teslaC").hide();
+			image(screen12,0,0);
+			
+			cp5.get(Button.class,"regresar").show();
+			fill(0);
 			text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
 			
@@ -207,7 +230,35 @@ public class Main extends PApplet {
 		
 	}
 		
-	
+	public void mouseClicked() {
+		if (pantallas==5 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+			
+			pantallas=4;
+			
+		}
+		
+		if (pantallas==6 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+			
+			pantallas=4;
+			
+		}
+		if (pantallas==7 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+			
+			pantallas=4;
+			
+		}
+		if (pantallas==8 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+			
+			pantallas=4;
+			
+		}
+		if (pantallas==5 && mouseX>198 && mouseX<360 && mouseY>0 && mouseY<640) {
+			
+			pantallas=4;
+			
+		}
+		
+	}
 	private void hidetext() {
 		cp5.get(Textfield.class,"usuario").setVisible(false);
 		cp5.get(Textfield.class,"password").setVisible(false);
@@ -228,6 +279,7 @@ public class Main extends PApplet {
 		cp5.get(Button.class,"teslaA").hide();
 		cp5.get(Button.class,"teslaB").hide();
 		cp5.get(Button.class,"teslaC").hide();
+		cp5.get(Button.class,"regresar").hide();
 			}
 	
 
@@ -434,6 +486,16 @@ public class Main extends PApplet {
 		     .setCaptionLabel("") 
 		     ;
 		  
+		 cp5.addButton("regresar")
+		     .setPosition(22,73)
+		     .setSize(37,20)
+		     .setColorActive(color(255,255,255,1)) 
+		     .setColorBackground(color(255,255,255,1))
+		     .setColorForeground(color(0,0,0,30))
+		     .setCaptionLabel("") 
+		     ;
+		 
+		 
 	}
 	
 	
@@ -489,5 +551,8 @@ public class Main extends PApplet {
 	}
 	public void teslaC() {
 		pantallas=8;
+	}
+	public void regresar() {
+		pantallas=4;
 	}
 }
