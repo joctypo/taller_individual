@@ -2,6 +2,11 @@ package main;
 
 public class Usuario {
 	private String Username,Correo,Naming,Contrasena; 
+	private Tarjeta tarjetica;
+	
+	
+	
+	
 	public Usuario(String naming, String username, String correo,  String contrasena) {
 		Username=username;
 		Correo=correo;
@@ -10,6 +15,8 @@ public class Usuario {
 		
 		
 	}
+	
+
 	public String getUsername() {
 		return Username;
 	}
@@ -34,5 +41,18 @@ public class Usuario {
 	public void setContrasena(String contrasena) {
 		Contrasena = contrasena;
 	}
+
+
+	public void registrocard(String tarjeta, String cvcc, String fecha, String id, String pascar) {
+		tarjetica= new Tarjeta(tarjeta,cvcc,fecha,id,pascar);
+	}
+	
+	public Tarjeta getTarjetica(Tarjeta tarjetica) {
+		return tarjetica;
+	}
+
+
+
+	
 
 }

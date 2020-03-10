@@ -44,6 +44,10 @@ public class Main extends PApplet {
 	String cvcc;
 	String fecha; 
 	String id; 
+	String tarjeta;
+	String usuarioeva;
+	String passeva;
+	
 
 	
 	int registrador=0;
@@ -737,21 +741,19 @@ public class Main extends PApplet {
 
 	}
 		 
-	public void loguear() {
-		
-		if(cp5.get(Textfield.class, "username2").getText().equals(Use) && cp5.get(Textfield.class, "password2").getText().equals(pass)) {}
-		
-	}
+	
 	
 	
 	
 	
 	//Estas son las funciones de los botones que se encuentran arriba
+	
 	public void login() {
-		  println("login");
-		  pantallas=2;
-			
-		}
+		
+pantallas=2;
+		
+	}
+
 	public void register() {
 		  println("register");
 		  pantallas=3;
@@ -769,11 +771,36 @@ public class Main extends PApplet {
 		}
 	
 	public void sign() {
-		pantallas=4;
+		
+		for (int i=0; i<people.size();i++) {
+			usuarioeva= people.get(i).getUsername();
+			passeva=people.get(i).getContrasena();
+		if(cp5.get(Textfield.class, "usuario").getText().equals(usuarioeva) && cp5.get(Textfield.class, "password").getText().equals(passeva)) {
+			
+			pantallas=4;
+			System.out.println("entro");
+		}}
 	
 	}
+	
+	
+	public void infocard() {
+		tarjeta=cp5.get(Textfield.class,"card").getText();
+		cvcc=cp5.get(Textfield.class,"cvc").getText();
+		fecha=cp5.get(Textfield.class,"fecha").getText();
+		id=cp5.get(Textfield.class,"id").getText();
+		pascar=cp5.get(Textfield.class,"password3").getText();
+		
+		for(int i = 0; i < people.size(); i++) {
+			people.get(i).registrocard(tarjeta, cvcc, fecha, id, pascar);
+		}
+		
+		
+	}
+	
 	public void submit() {
 			registraduria();
+			limpiar();
 	}
 	
 	public void perfil() {
@@ -796,4 +823,22 @@ public class Main extends PApplet {
 		pantallas=13;
 		
 	}
+	
+	public void limpiar() {
+		
+		cp5.get(Textfield.class,"usuario").clear();
+		cp5.get(Textfield.class,"password").clear();
+		cp5.get(Textfield.class,"usuario2").clear();
+		cp5.get(Textfield.class,"password2").clear();
+		cp5.get(Textfield.class,"nombre").clear();
+		cp5.get(Textfield.class,"email").clear();
+		cp5.get(Textfield.class,"card").clear();
+		cp5.get(Textfield.class,"password3").clear();
+		cp5.get(Textfield.class,"cvc").clear();
+		cp5.get(Textfield.class,"id").clear();
+		cp5.get(Textfield.class,"fecha").clear();
+		
+		
+	}
+	
 }
