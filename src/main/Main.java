@@ -18,9 +18,8 @@ public class Main extends PApplet {
 	String [] historial;
 	String [] usuario;
 	String [] card;
-	String [] animacion1;
-	String [] animacion2;
-	String [] animacion3;
+	PImage [] animacion1;
+
 	
 	
 	PImage screen1;
@@ -109,12 +108,6 @@ public class Main extends PApplet {
 		usuario[1] = "name";
 		usuario[2] = "email";
 		usuario[3] = "password";
-		
-		
-		// Aqui sons arreglos para la animación
-		animacion1 = new String [30];
-		animacion2 = new String [30];
-		animacion3 = new String [30];
 		
 		 	
 
@@ -300,7 +293,7 @@ public class Main extends PApplet {
 			
 			// comparar carro A
 			hideboton();
-			animacion();
+			image(screen7,0,0);
 			
 			
 			break;
@@ -309,7 +302,7 @@ public class Main extends PApplet {
 			
 			// comparar carro B
 			hideboton();
-			animacion();
+			image(screen11,0,0);
 			
 			break;
 			
@@ -317,7 +310,7 @@ public class Main extends PApplet {
 			
 			// comparar carro C
 			hideboton();
-			animacion();
+			image(screen13,0,0);
 						
 
 			break;
@@ -997,26 +990,7 @@ pantallas=2;
 	}
 	
 	
-	//Este sirve para animar las comparaciones 
-	public void animacion() {
-		
-	if(pantallas==9) {
-		frameRate(12);
-		for(int j=0;j<30;j++) {
-		
-			
-		}
-		;
-	}
-	if(pantallas==10) {
-		
-		
-	}
-	if(pantallas==11) {
-		
-		
-	}
-		
-	}
+
+	
 	
 }
