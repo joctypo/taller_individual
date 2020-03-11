@@ -4,7 +4,8 @@ public abstract class Carros {
  protected int precio;
  protected String modelo;
  
- 
+
+ //Aquí realizo el constructor de la clase abstracta 
 public Carros (int Precio, String Modelo) {
 	
 	precio=Precio;
@@ -13,6 +14,7 @@ public Carros (int Precio, String Modelo) {
 }
 
 
+//Aquí se encuentran los Set y Get 
 public int getPrecio() {
 	return precio;
 }

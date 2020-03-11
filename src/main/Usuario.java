@@ -8,7 +8,7 @@ public class Usuario {
 	String histori [];
 	
 	
-	
+	//Este es el constructor del Usuario
 	public Usuario(String naming, String username, String correo,  String contrasena) {
 		Username=username;
 		Correo=correo;
@@ -21,28 +21,42 @@ public class Usuario {
 		
 	}
 	
-
+	//A continuacion estan los Get y Set que ayudan a mover las variables entre clases 
 	public String getUsername() {
 		return Username;
 	}
+	
+	
 	public void setUsername(String username) {
 		Username = username;
 	}
+	
+	
 	public String getCorreo() {
 		return Correo;
 	}
+	
+	
 	public void setCorreo(String correo) {
 		Correo = correo;
 	}
+	
+	
 	public String getNaming() {
 		return Naming;
 	}
+	
+	
 	public void setNaming(String naming) {
 		Naming = naming;
 	}
+	
+	
 	public String getContrasena() {
 		return Contrasena;
 	}
+	
+	
 	public void setContrasena(String contrasena) {
 		Contrasena = contrasena;
 	}
@@ -51,6 +65,8 @@ public class Usuario {
 	public void registrocard(String tarjeta, String cvcc, String fecha, String id, String pascar) {
 		tarjetica= new Tarjeta(tarjeta,cvcc,fecha,id,pascar);
 	}
+	
+	
 	
 	public Tarjeta getTarjetica(Tarjeta tarjetica) {
 		return tarjetica;
