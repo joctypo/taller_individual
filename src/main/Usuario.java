@@ -3,7 +3,8 @@ package main;
 public class Usuario {
 	private String Username,Correo,Naming,Contrasena; 
 	private Tarjeta tarjetica;
-	
+	String carrocomprado;
+	String id;
 	
 	
 	
@@ -12,6 +13,9 @@ public class Usuario {
 		Correo=correo;
 		Naming=naming;
 		Contrasena=contrasena;
+		carrocomprado = "";
+		id="";
+		
 		
 		
 	}
@@ -49,6 +53,26 @@ public class Usuario {
 	
 	public Tarjeta getTarjetica(Tarjeta tarjetica) {
 		return tarjetica;
+	}
+
+
+	public String getCarrocomprado() {
+		return carrocomprado;
+	}
+
+
+	public void setCarrocomprado(String carrocomprado) {
+		this.carrocomprado = carrocomprado;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 

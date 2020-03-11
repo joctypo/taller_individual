@@ -15,6 +15,8 @@ public class Main extends PApplet {
 	
 	ArrayList<Usuario> people;
 	ArrayList<Carros> cars;
+	
+	String [] historial;
 	String [] usuario;
 	String [] card;
 	
@@ -407,19 +409,17 @@ public class Main extends PApplet {
 			
 			pantallas=4;
 			}
-		
-		
-		
-		
-	/*	if (pantallas==3  && mouseX>141 && mouseX<216 && mouseY>434 && mouseY<458) {
+	if (pantallas==5  && mouseX>16 && mouseX<121 && mouseY>130 && mouseY<148) {
 			
-			registraduria();
-			
-			
-		}*/
-		
+			historia();
+			}
 		
 	}
+	private void historia() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void hidetext() {
 		cp5.get(Textfield.class,"usuario").setVisible(false);
 		cp5.get(Textfield.class,"password").setVisible(false);
@@ -846,6 +846,15 @@ pantallas=2;
 		if(cp5.get(Textfield.class, "password3").getText().equals(passeva)) {
 			
 			pantallas=13;
+			for(int h=0;h<people.size();h++) {
+				if(people.get(h).getUsername()==usuarioeva) {
+					people.get(h).setCarrocomprado(cars.get(posicion).getModelo());
+					people.get(h).setId(cp5.get(Textfield.class, "id").getText());
+					historia();
+				}
+				
+			}
+			
 			limpiar();
 			System.out.println("entro");
 		}
