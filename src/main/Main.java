@@ -19,6 +19,10 @@ public class Main extends PApplet {
 	String [] historial;
 	String [] usuario;
 	String [] card;
+	String [] animacion1;
+	String [] animacion2;
+	String [] animacion3;
+	
 	
 	PImage screen1;
 	PImage screen2;
@@ -36,6 +40,7 @@ public class Main extends PApplet {
 	PImage screen14;
 	PImage screen15;
 	PImage screen16;
+	PImage screen17;
 	String vacio = "";
 	String register;
 	String username;
@@ -49,6 +54,9 @@ public class Main extends PApplet {
 	String tarjeta;
 	String usuarioeva;
 	String passeva;
+	String Hid;
+	String HMod;
+	String Husus;
 	int cash;
 
 	int posicion=0;
@@ -56,6 +64,7 @@ public class Main extends PApplet {
 	int pantallas=0;
 	int contadorf;
 	int tiempo;
+	int cambiante;
 	int pantallavieja=0;
 	PFont font;
 	
@@ -94,7 +103,10 @@ public class Main extends PApplet {
 		usuario[1] = "name";
 		usuario[2] = "email";
 		usuario[3] = "password";
-	
+		animacion1 = new String [30];
+		animacion2 = new String [30];
+		animacion3 = new String [30];
+		cambiante=255;
 		 	
 
 	}
@@ -133,7 +145,9 @@ public class Main extends PApplet {
 			
 		case 2:
 			//en esta pantalla esta el login de la app
+			
 			image(screen3,0,0);
+			
 			cp5.get(Textfield.class,"usuario2").setVisible(false);
 			cp5.get(Textfield.class,"password2").setVisible(false);
 			cp5.get(Textfield.class,"email").setVisible(false);
@@ -148,7 +162,6 @@ public class Main extends PApplet {
 			cp5.get(Textfield.class,"password").setVisible(true);
 			cp5.get(Button.class,"register2").show();
 			cp5.get(Button.class,"sign").show();
-
 			
 			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
 			break;
@@ -258,7 +271,7 @@ public class Main extends PApplet {
 		case 9:
 			// comparar carro A
 			hideboton();
-			image(screen7,0,0);
+			animacion();
 			
 			//fill(0);
 			//text("x: "+mouseX+"y: "+mouseY,mouseX,mouseY);
@@ -312,6 +325,23 @@ public class Main extends PApplet {
 				image(screen15,0,0);
 			}
 			 break;
+			 
+		case 14:
+			hideboton();
+			hidetext();
+			
+			image(screen17,0,0);
+			
+			for(int h=0;h<people.size();h++) {
+				if(people.get(h).getUsername()==usuarioeva) {
+					textFont(font);
+					text(Hid,42,250);
+					text(HMod,42,280);
+				  
+				}
+				
+			}
+			break;
 	
 		}
 		
@@ -405,19 +435,28 @@ public class Main extends PApplet {
 		}
 		
 		//regresar al menu principal después de la compra
-		if (pantallas==13  && mouseX>143 && mouseX<216 && mouseY>556 && mouseY<581) {
+		if ((pantallas==13 || pantallas==14) && mouseX>143 && mouseX<216 && mouseY>556 && mouseY<581) {
 			
 			pantallas=4;
 			}
 	if (pantallas==5  && mouseX>16 && mouseX<121 && mouseY>130 && mouseY<148) {
 			
 			historia();
+			pantallas=14;
 			}
 		
 	}
 	private void historia() {
-		// TODO Auto-generated method stub
 		
+		for(int h=0;h<people.size();h++) {
+			if(people.get(h).getUsername()==usuarioeva) {
+			  Hid=people.get(h).getId();
+			  HMod=people.get(h).getCarrocomprado();
+			  Husus=people.get(h).getUsername();
+		
+			}
+			
+		}
 	}
 
 	private void hidetext() {
@@ -470,6 +509,7 @@ public class Main extends PApplet {
 		screen14= loadImage("insumos/screen14.png");
 		screen15= loadImage("insumos/screen15.png");
 		screen16=loadImage("insumos/screen16.png");
+		screen17=loadImage("insumos/screen17.png");
 	
 	}
 	public void textoslog() {
@@ -877,6 +917,31 @@ pantallas=2;
 		cp5.get(Textfield.class,"id").clear();
 		cp5.get(Textfield.class,"fecha").clear();
 		
+		
+	}
+	
+	public void animacion() {
+		
+	if(pantallas==9) {
+		frameRate(12);
+		for(int j=0;j<30;j++) {
+			tint(255,cambiante);
+			image(screen7,0,0);
+			cambiante-=10;
+			
+			
+		}
+		noTint();
+		image(screen7,0,0);
+	}
+	if(pantallas==10) {
+		
+		
+	}
+	if(pantallas==11) {
+		
+		
+	}
 		
 	}
 	

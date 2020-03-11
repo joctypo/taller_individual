@@ -5,6 +5,7 @@ public class Usuario {
 	private Tarjeta tarjetica;
 	String carrocomprado;
 	String id;
+	String histori [];
 	
 	
 	
@@ -15,7 +16,7 @@ public class Usuario {
 		Contrasena=contrasena;
 		carrocomprado = "";
 		id="";
-		
+		histori = new String [50];
 		
 		
 	}
@@ -68,6 +69,16 @@ public class Usuario {
 
 	public String getId() {
 		return id;
+	}
+
+
+	public String[] getHistori() {
+		return histori;
+	}
+
+
+	public void setHistori(String[] histori) {
+		this.histori = histori;
 	}
 
 
